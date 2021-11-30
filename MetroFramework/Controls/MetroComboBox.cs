@@ -37,6 +37,8 @@ namespace MetroFramework.Controls
     {
         #region Interface
 
+        public bool AllowHeightOverride = false;
+
         private MetroColorStyle metroStyle = MetroColorStyle.Blue;
         [Category("Metro Appearance")]
         public MetroColorStyle Style
@@ -167,7 +169,11 @@ namespace MetroFramework.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            base.ItemHeight = GetPreferredSize(Size.Empty).Height;
+
+            if(!AllowHeightOverride)
+            {
+                base.ItemHeight = GetPreferredSize(Size.Empty).Height;
+            }
 
             Color backColor, borderColor, foreColor;
 
