@@ -46,6 +46,7 @@
             this.metroTextBox4 = new MetroFramework.Controls.MetroTextBox();
             this.metroTextBox3 = new MetroFramework.Controls.MetroTextBox();
             this.metroTextBox2 = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabeledTextBox = new MetroFramework.Controls.MetroLabeledTextBox();
             this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
@@ -339,6 +340,7 @@
             // 
             // metroTabPage4
             // 
+            this.metroTabPage4.Controls.Add(this.metroLabeledTextBox);
             this.metroTabPage4.Controls.Add(this.metroTextBox4);
             this.metroTabPage4.Controls.Add(this.metroTextBox3);
             this.metroTabPage4.Controls.Add(this.metroTextBox2);
@@ -386,6 +388,17 @@
             this.metroTextBox4.Text = "Disabled Textbox";
             this.metroTextBox4.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroTextBox4.UseStyleColors = false;
+            //
+            // metroLabeledTextBox
+            //
+            this.metroLabeledTextBox.FontSize = MetroFramework.MetroTextBoxSize.Small;
+            this.metroLabeledTextBox.FontWeight = MetroFramework.MetroTextBoxWeight.Regular;
+            this.metroLabeledTextBox.Location = new System.Drawing.Point(30, 125);
+            this.metroLabeledTextBox.Name = "metroLabeledTextBox";
+            this.metroLabeledTextBox.Size = new System.Drawing.Size(200, 40);
+            this.metroLabeledTextBox.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabeledTextBox.Label = "Labeled Textbox";
+            this.metroLabeledTextBox.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
             // metroTextBox3
             // 
@@ -1213,6 +1226,7 @@
         private Controls.MetroTextBox metroTextBox4;
         private Controls.MetroTextBox metroTextBox3;
         private Controls.MetroTextBox metroTextBox2;
+        private Controls.MetroLabeledTextBox metroLabeledTextBox;
         private Controls.MetroLabel metroLabel15;
         private Controls.MetroLabel metroLabel12;
         private Controls.MetroLabel metroLabel13;
