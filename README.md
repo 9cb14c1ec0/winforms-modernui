@@ -2,7 +2,7 @@ MetroFramework - WinForms on steroids.
 --------------------------------------
 
 Brings the new Modern UI alias Metro UI of Windows 8 to .NET Windows Forms applications, updated to target .NET Core 6. 
-
+If you have admired the looks of commercial packages like DevExpress, this project might be your open source alternative.
 
 Supported platforms
 -------------------
