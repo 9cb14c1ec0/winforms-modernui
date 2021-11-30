@@ -1,14 +1,11 @@
 MetroFramework - WinForms on steroids.
 --------------------------------------
 
-Brings the new Modern UI alias Metro UI of Windows 8 to .NET Windows Forms applications. 
+Brings the new Modern UI alias Metro UI of Windows 8 to .NET Windows Forms applications, updated to target .NET Core 6. 
 
-[![NuGet](https://img.shields.io/nuget/v/modernui.svg)](https://www.nuget.org/packages/modernui)
 
 Supported platforms
 -------------------
-* Windows XP SP1/SP2/SP3 (without Aero Glass) .NET Framework 2.0
-* Windows Vista .NET Framework 2.0 
 * Windows 7 .NET FRAMEWORK 2.0 / .NET CORE  
 * Windows 8 .NET FRAMEWORK 2.0 / .NET CORE
 * Windows 10 .NET FRAMEWORK 2.0 / .NET CORE
@@ -16,7 +13,7 @@ Supported platforms
 Building
 -------------------
 
-Modernui requires at least Visual Studio 2019 (16.4) and .NET Core SDK 3.1 to build on Windows.
+Modernui requires at least Visual Studio Code and .NET Core SDK 6 to build on Windows.
 
 Controls supported
 ------------------
@@ -62,7 +59,8 @@ License
 
 The MIT License (MIT)
 
-Copyright (c) 2011 Sven Walter, http://github.com/viperneo
+Copyright (c) 2011 Sven Walter, https://github.com/viperneo
+Copyright (c) 2021 Edwin Zimmerman, https://github.com/9cb14c1ec0
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of 
 this software and associated documentation files (the "Software"), to deal in the 

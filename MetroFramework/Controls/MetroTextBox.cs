@@ -164,13 +164,6 @@ namespace MetroFramework.Controls
             base.OnContextMenuStripChanged(e);
         }
 
-#if NETFULLFRAMEWORK || NETCOREAPP3_0
-        private void BaseTextBoxContextMenuChanged(object sender, EventArgs e)
-        {
-            base.OnContextMenuChanged(e);
-        }
-#endif
-
         private void BaseTextBoxClientSizeChanged(object sender, EventArgs e)
         {
             base.OnClientSizeChanged(e);
@@ -288,9 +281,7 @@ namespace MetroFramework.Controls
             baseTextBox.ChangeUICues += BaseTextBoxChangeUiCues;
             baseTextBox.Click += BaseTextBoxClick;
             baseTextBox.ClientSizeChanged += BaseTextBoxClientSizeChanged;
-#if NETFULLFRAMEWORK || NETCOREAPP3_0
-            baseTextBox.ContextMenuChanged += BaseTextBoxContextMenuChanged;
-#endif
+
             baseTextBox.ContextMenuStripChanged += BaseTextBoxContextMenuStripChanged;
             baseTextBox.CursorChanged += BaseTextBoxCursorChanged;
 
