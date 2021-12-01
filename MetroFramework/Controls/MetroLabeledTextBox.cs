@@ -119,6 +119,12 @@ namespace MetroFramework.Controls
             set { baseLabel.Text = value; }
         }
 
+        public char PasswordChar
+        {
+            get { return baseTextBox.PasswordChar; }
+            set { baseTextBox.PasswordChar = value; }
+        }
+
         [Browsable(false)]
         public string SelectedText
         {
@@ -222,7 +228,7 @@ namespace MetroFramework.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-
+            
             e.Graphics.Clear(MetroPaint.BackColor.Button.Normal(Theme));
             baseTextBox.BackColor = MetroPaint.BackColor.Button.Normal(Theme);
             baseTextBox.ForeColor = MetroPaint.ForeColor.Button.Normal(Theme);
