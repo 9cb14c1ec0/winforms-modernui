@@ -27,7 +27,14 @@
       Windows 10 (.NET CORE)
     </Description>
   </PropertyGroup>
-  <ItemGroup Condition="$(IsNetCoreApp)">
-    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+
+  <ItemGroup>
+    <PackageReference Include="Svg" Version="3.2.3"/>
   </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Drawing\Icons\eye.svg"/>
+    <EmbeddedResource Include="Drawing\Icons\mobile.svg"/>
+  </ItemGroup>
+
 </Project>

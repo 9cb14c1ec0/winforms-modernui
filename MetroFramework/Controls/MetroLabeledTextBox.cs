@@ -79,6 +79,14 @@ namespace MetroFramework.Controls
         private TextBox baseTextBox;
         private Label baseLabel;
 
+        private MetroIcons icon = MetroIcons.None;
+        public MetroIcons Icon
+        {
+            get {return icon; }
+            set { icon = value;
+                  Invalidate(); }
+        }
+
         private bool useStyleColors = false;
         [Category("Metro Appearance")]
         public bool UseStyleColors
@@ -241,6 +249,13 @@ namespace MetroFramework.Controls
             {
                 e.Graphics.DrawRectangle(p, new Rectangle(0, 0, Width - 1, Height - 1));
             }
+
+            if(icon != MetroIcons.None)
+            {
+                var bitmap = MetroIconUtils.GetMetroIconBitmap(icon, MetroPaint.GetStyleColor(Style));
+                e.Graphics.DrawImage(bitmap, new Point(Width - 30, (Height / 2) - (bitmap.Height / 2)  ));
+                
+            }
         }
 
         #endregion
@@ -287,9 +302,18 @@ namespace MetroFramework.Controls
             baseTextBox.BorderStyle = BorderStyle.None;
             baseTextBox.Font = MetroFonts.TextBox(metroTextBoxSize, metroTextBoxWeight);
             baseTextBox.Location = new Point(3, 23);
-            baseTextBox.Size = new Size(Width - 6, Height - 26);
+            
+            if(Icon != MetroIcons.None)
+            {
+                baseTextBox.Size = new Size(Width - 36, Height - 26);
+                Size = new Size(baseTextBox.Width + 36, baseTextBox.Height + 26);
+            }
+            else
+            {
+                baseTextBox.Size = new Size(Width - 6, Height - 26);
+                Size = new Size(baseTextBox.Width + 6, baseTextBox.Height + 26);
+            }
 
-            Size = new Size(baseTextBox.Width + 6, baseTextBox.Height + 26);
             Controls.Add(baseTextBox);
         }
 
@@ -321,8 +345,16 @@ namespace MetroFramework.Controls
             if (baseTextBox == null) return;
 
             baseTextBox.Font = MetroFonts.TextBox(metroTextBoxSize, metroTextBoxWeight);
+
             baseTextBox.Location = new Point(3, 23);
-            baseTextBox.Size = new Size(Width - 6, Height - 26);
+            if(Icon != MetroIcons.None)
+            {
+                baseTextBox.Size = new Size(Width - 36, Height - 26);
+            }
+            else
+            {
+                baseTextBox.Size = new Size(Width - 6, Height - 26);
+            }
 
             baseLabel.Location = new Point(1, 3);
             baseLabel.Size = new Size(Width - 6, 20);

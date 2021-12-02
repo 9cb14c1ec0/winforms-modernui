@@ -399,6 +399,7 @@
             this.metroLabeledTextBox.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroLabeledTextBox.Label = "Labeled Textbox";
             this.metroLabeledTextBox.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroLabeledTextBox.Icon = MetroFramework.Drawing.MetroIcons.MobilePhone;
             // 
             // metroTextBox3
             // 
