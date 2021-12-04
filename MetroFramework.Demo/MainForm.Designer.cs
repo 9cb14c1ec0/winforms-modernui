@@ -47,6 +47,7 @@
             this.metroTextBox3 = new MetroFramework.Controls.MetroTextBox();
             this.metroTextBox2 = new MetroFramework.Controls.MetroTextBox();
             this.metroLabeledTextBox = new MetroFramework.Controls.MetroLabeledTextBox();
+            this.metroLabeledPasswordBox = new MetroFramework.Controls.MetroLabeledPasswordBox();
             this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
@@ -341,6 +342,7 @@
             // metroTabPage4
             // 
             this.metroTabPage4.Controls.Add(this.metroLabeledTextBox);
+            this.metroTabPage4.Controls.Add(this.metroLabeledPasswordBox);
             this.metroTabPage4.Controls.Add(this.metroTextBox4);
             this.metroTabPage4.Controls.Add(this.metroTextBox3);
             this.metroTabPage4.Controls.Add(this.metroTextBox2);
@@ -400,6 +402,17 @@
             this.metroLabeledTextBox.Label = "Labeled Textbox";
             this.metroLabeledTextBox.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroLabeledTextBox.Icon = MetroFramework.Drawing.MetroIcons.MobilePhone;
+            //
+            // metroLabledPasswordBox
+            //
+            this.metroLabeledPasswordBox.FontSize = MetroFramework.MetroTextBoxSize.Small;
+            this.metroLabeledPasswordBox.FontWeight = MetroFramework.MetroTextBoxWeight.Regular;
+            this.metroLabeledPasswordBox.Location = new System.Drawing.Point(30, 170);
+            this.metroLabeledPasswordBox.Name = "metroLabeledPasswordBox";
+            this.metroLabeledPasswordBox.Size = new System.Drawing.Size(200, 40);
+            this.metroLabeledPasswordBox.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabeledPasswordBox.Label = "Labeled Password Box";
+            this.metroLabeledPasswordBox.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
             // metroTextBox3
             // 
@@ -1228,6 +1241,7 @@
         private Controls.MetroTextBox metroTextBox3;
         private Controls.MetroTextBox metroTextBox2;
         private Controls.MetroLabeledTextBox metroLabeledTextBox;
+        private Controls.MetroLabeledPasswordBox metroLabeledPasswordBox;
         private Controls.MetroLabel metroLabel15;
         private Controls.MetroLabel metroLabel12;
         private Controls.MetroLabel metroLabel13;

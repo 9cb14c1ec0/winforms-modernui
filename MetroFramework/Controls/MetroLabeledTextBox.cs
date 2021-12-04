@@ -388,4 +388,16 @@ namespace MetroFramework.Controls
 
         #endregion
     }
+
+    public class MetroLabeledPasswordBox: MetroLabeledTextBox
+    {
+        public MetroLabeledPasswordBox() : base()
+        {
+            Icon = MetroIcons.Eye;
+            PasswordChar = '•';
+            IconMouseDown += (object sender, EventArgs e) => { PasswordChar = '\0'; };
+            IconMouseUp += (object sender, EventArgs e) => { PasswordChar = '•'; };
+        }
+
+    }
 }
