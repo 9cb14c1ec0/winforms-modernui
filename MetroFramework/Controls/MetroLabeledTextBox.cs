@@ -76,15 +76,15 @@ namespace MetroFramework.Controls
 
         #region Fields
 
+        private Bitmap current_icon;
         private TextBox baseTextBox;
-        private Label baseLabel;
 
         private MetroIcons icon = MetroIcons.None;
         public MetroIcons Icon
         {
             get {return icon; }
             set { icon = value;
-                  Invalidate(); }
+                    UpdateBaseTextBox(); }
         }
 
         private bool useStyleColors = false;
@@ -121,10 +121,11 @@ namespace MetroFramework.Controls
             set { baseTextBox.Text = value; }
         }
 
+        string internal_label = "";
         public string Label
         {
-            get { return baseLabel.Text; }
-            set { baseLabel.Text = value; }
+            get { return internal_label; }
+            set { internal_label = value; Invalidate(); }
         }
 
         public char PasswordChar
@@ -147,7 +148,6 @@ namespace MetroFramework.Controls
         public MetroLabeledTextBox()
         {
             SetStyle(ControlStyles.DoubleBuffer, true);
-            CreateBaseLabel();
             CreateBaseTextBox();
             UpdateBaseTextBox();
             AddEventHandler();       
@@ -156,6 +156,10 @@ namespace MetroFramework.Controls
         #endregion
 
         #region Routing Methods
+
+        public event EventHandler IconMouseUp;
+        
+        public event EventHandler IconMouseDown;
 
         public event EventHandler AcceptsTabChanged;
         private void BaseTextBoxAcceptsTabChanged(object sender, EventArgs e)
@@ -252,10 +256,13 @@ namespace MetroFramework.Controls
 
             if(icon != MetroIcons.None)
             {
-                var bitmap = MetroIconUtils.GetMetroIconBitmap(icon, MetroPaint.GetStyleColor(Style));
-                e.Graphics.DrawImage(bitmap, new Point(Width - 30, (Height / 2) - (bitmap.Height / 2)  ));
-                
+                current_icon = MetroIconUtils.GetMetroIconBitmap(icon, MetroPaint.GetStyleColor(Style));
+                e.Graphics.DrawImage(current_icon, new Point(Width - 30, (Height / 2) - (current_icon.Height / 2)  ));
             }
+
+            var f = MetroFonts.Label(MetroLabelSize.Small, MetroLabelWeight.Light);
+            e.Graphics.DrawString(internal_label, f, System.Drawing.Brushes.Gray,
+                                    new Point(2,2));
         }
 
         #endregion
@@ -277,21 +284,6 @@ namespace MetroFramework.Controls
         #endregion
 
         #region Private Methods
-
-        private void CreateBaseLabel()
-        {
-            if (baseLabel != null) return;
-
-            baseLabel = new Label();
-            //baseLabel.BorderStyle = BorderStyle.None;
-            baseLabel.BackColor = Color.Transparent;
-            baseLabel.ForeColor = Color.Gray;
-            baseLabel.Font = MetroFonts.Label(MetroLabelSize.Small, MetroLabelWeight.Light);
-            baseLabel.Location = new Point(1, 3);
-            baseLabel.Size = new Size(Width - 6, 20);
-            baseLabel.Parent = this;
-
-        }
 
         private void CreateBaseTextBox()
         {
@@ -337,7 +329,42 @@ namespace MetroFramework.Controls
 
             baseTextBox.TextChanged += BaseTextBoxTextChanged;
 
-            baseLabel.Click += (object sender, EventArgs e) => { baseTextBox.Focus(); };
+            this.MouseDown += ControlMouseDown;
+            this.MouseUp += ControlMouseUp;
+            this.IconMouseUp += (object sender, EventArgs e) => {};
+            this.IconMouseDown += (object sender, EventArgs e) => {};
+        }
+
+
+        private void ControlMouseDown(object sender, MouseEventArgs e)
+        {
+            if(Icon == MetroIcons.None) return;
+
+            var icon_left = Width - 30;
+            var icon_right = Width;
+
+
+            if(e.X >= icon_left & e.X <= icon_right)
+            {
+                    IconMouseDown(this, new EventArgs());
+            }
+            else
+            {
+                baseTextBox.Focus();
+            }
+        }
+        private void ControlMouseUp(object sender, MouseEventArgs e)
+        {
+            if(Icon == MetroIcons.None) return;
+
+            var icon_left = Width - 30;
+            var icon_right = Width;
+
+
+            if(e.X >= icon_left & e.X <= icon_right)
+            {
+                    IconMouseUp(this, new EventArgs());
+            }
         }
 
         private void UpdateBaseTextBox()
@@ -347,6 +374,7 @@ namespace MetroFramework.Controls
             baseTextBox.Font = MetroFonts.TextBox(metroTextBoxSize, metroTextBoxWeight);
 
             baseTextBox.Location = new Point(3, 23);
+
             if(Icon != MetroIcons.None)
             {
                 baseTextBox.Size = new Size(Width - 36, Height - 26);
@@ -355,9 +383,7 @@ namespace MetroFramework.Controls
             {
                 baseTextBox.Size = new Size(Width - 6, Height - 26);
             }
-
-            baseLabel.Location = new Point(1, 3);
-            baseLabel.Size = new Size(Width - 6, 20);
+            
         }
 
         #endregion
