@@ -222,7 +222,8 @@ namespace MetroFramework.Drawing
                 {
                     if (theme == MetroThemeStyle.Dark)
                         return Color.FromArgb(34, 34, 34);
-
+                    else if (theme == MetroThemeStyle.LightWhite)
+                        return Color.FromArgb(255, 255, 255);
                     return Color.FromArgb(238, 238, 238);
                 }
 
