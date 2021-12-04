@@ -37,6 +37,13 @@ namespace MetroFramework.Controls
     {
         #region Interface
 
+        private string label = "";
+        public string Label
+        {
+            get { return label; }
+            set { label = value; Invalidate(); }
+        }
+
         public bool AllowHeightOverride = false;
 
         private MetroColorStyle metroStyle = MetroColorStyle.Blue;
@@ -170,11 +177,6 @@ namespace MetroFramework.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
 
-            if(!AllowHeightOverride)
-            {
-                base.ItemHeight = GetPreferredSize(Size.Empty).Height;
-            }
-
             Color backColor, borderColor, foreColor;
 
             if (Parent != null)
@@ -216,7 +218,18 @@ namespace MetroFramework.Controls
                 e.Graphics.FillPolygon(b, new Point[] { new Point(Width - 20, (Height / 2) - 2), new Point(Width - 9, (Height / 2) - 2), new Point(Width - 15,  (Height / 2) + 4) });
             }
 
-            Rectangle textRect = new Rectangle(2, 2, Width - 20, Height - 4);
+            if(Label.Length > 0)
+            {
+                TextRenderer.DrawText(e.Graphics, Label, MetroFonts.Label(MetroLabelSize.Small, MetroLabelWeight.Regular),
+                                        new Point(2,2), Color.Gray);
+            }
+            var top = 2;
+            if (Label.Length > 0)
+            {
+                top = 8;
+            }
+
+            Rectangle textRect = new Rectangle(2, top, Width - 20, Height - 4);
             TextRenderer.DrawText(e.Graphics, Text, MetroFonts.Link(metroLinkSize, metroLinkWeight), textRect, foreColor, backColor, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
 
             if (false && isFocused)
