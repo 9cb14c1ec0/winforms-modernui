@@ -298,7 +298,7 @@ namespace MetroFramework.Controls
 
             baseTextBox.BorderStyle = BorderStyle.None;
             baseTextBox.Font = MetroFonts.TextBox(metroTextBoxSize, metroTextBoxWeight);
-            baseTextBox.Location = new Point(3, 23);
+            baseTextBox.Location = new Point(3, 21);
             
             if(Icon != MetroIcons.None)
             {
@@ -382,7 +382,7 @@ namespace MetroFramework.Controls
 
             baseTextBox.Font = MetroFonts.TextBox(metroTextBoxSize, metroTextBoxWeight);
 
-            baseTextBox.Location = new Point(3, 23);
+            baseTextBox.Location = new Point(3, 21);
 
             if(Icon != MetroIcons.None)
             {
