@@ -269,6 +269,11 @@ namespace MetroFramework.Controls
 
         #region Overridden Methods
 
+        public virtual new void Focus()
+        {
+            baseTextBox.Focus();
+        }
+
         public override void Refresh()
         {
             base.Refresh();
@@ -338,7 +343,11 @@ namespace MetroFramework.Controls
 
         private void ControlMouseDown(object sender, MouseEventArgs e)
         {
-            if(Icon == MetroIcons.None) return;
+            if(Icon == MetroIcons.None) 
+            {
+                baseTextBox.Focus();
+                return;
+            }
 
             var icon_left = Width - 30;
             var icon_right = Width;
