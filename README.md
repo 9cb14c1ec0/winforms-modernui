@@ -1,8 +1,10 @@
 MetroFramework - WinForms on steroids.
 --------------------------------------
 
-Brings the new Modern UI alias Metro UI of Windows 8 to .NET Windows Forms applications, updated to target .NET Core 6. 
+Brings a modern look to .NET Windows Forms applications, updated to target .NET Core 6. 
 If you have admired the looks of commercial packages like DevExpress, this project might be your open source alternative.
+
+![MetroFramework](doc/images/header.png)
 
 Supported platforms
 -------------------
@@ -17,8 +19,12 @@ Modernui requires at least Visual Studio Code and .NET Core SDK 6 to build on Wi
 
 Controls supported
 ------------------
+* MetroTextbox
+* MetroLabeledTextbox
+* MetroLabeledPasswordbox
 * Button
 * ComboBox
+* LabeledComboBox
 * Checkbox
 * RadioButton
 * Toggle
@@ -40,6 +46,7 @@ Components supported
 
 Screenshots
 ----------
+
 *Light*
 
 ![MetroFramework](http://i.imgur.com/8Yk1BiN.png)
@@ -60,6 +67,7 @@ License
 The MIT License (MIT)
 
 Copyright (c) 2011 Sven Walter, https://github.com/viperneo
+
 Copyright (c) 2021 Edwin Zimmerman, https://github.com/9cb14c1ec0
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of 
