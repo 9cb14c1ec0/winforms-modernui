@@ -305,7 +305,6 @@
             this.metroTileSwitch.TabIndex = 4;
             this.metroTileSwitch.Text = "Switch Style";
             this.metroTileSwitch.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTileSwitch.TileCount = 0;
             this.metroTileSwitch.Click += new System.EventHandler(this.metroTileSwitch_Click);
             // 
             // metroTile2
@@ -320,7 +319,6 @@
             this.metroTile2.TabIndex = 3;
             this.metroTile2.Text = "Disabled";
             this.metroTile2.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTile2.TileCount = 0;
             // 
             // metroTile1
             // 
@@ -333,7 +331,6 @@
             this.metroTile1.TabIndex = 2;
             this.metroTile1.Text = "Switch Theme";
             this.metroTile1.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTile1.TileCount = 0;
 #if NETFULLFRAMEWORK || NETCOREAPP3_0
             this.metroToolTip.SetToolTip(this.metroTile1, "Tile Tooltip");
 #endif

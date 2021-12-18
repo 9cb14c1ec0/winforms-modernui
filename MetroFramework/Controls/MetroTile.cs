@@ -108,13 +108,6 @@ namespace MetroFramework.Controls
             }
         }
 
-        private int tileCount = 0;
-        public int TileCount
-        {
-            get { return tileCount; }
-            set { tileCount = value; }
-        }
-
         private bool isHovered = false;
         private bool isPressed = false;
         private bool isFocused = false;
@@ -174,15 +167,6 @@ namespace MetroFramework.Controls
                     Point[] polyPoints = new Point[] { new Point(0,0), new Point(Width-1,2),new Point(Width-1,Height-2),new Point(0,Height) };
                     e.Graphics.FillPolygon(b, polyPoints);
                 }
-            }
-
-            if (TileCount > 0)
-            {
-                Size countSize = TextRenderer.MeasureText(TileCount.ToString(), MetroFonts.TileCount);
-
-                e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-                TextRenderer.DrawText(e.Graphics, TileCount.ToString(), MetroFonts.TileCount, new Point(Width - countSize.Width, 0), foreColor);
-                e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             }
 
             Size textSize = TextRenderer.MeasureText(Text, MetroFonts.Tile);
