@@ -331,6 +331,7 @@
             this.metroTile1.TabIndex = 2;
             this.metroTile1.Text = "Switch Theme";
             this.metroTile1.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroTile1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 #if NETFULLFRAMEWORK || NETCOREAPP3_0
             this.metroToolTip.SetToolTip(this.metroTile1, "Tile Tooltip");
 #endif

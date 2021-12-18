@@ -30,6 +30,7 @@ using MetroFramework.Drawing;
 using MetroFramework.Design;
 using MetroFramework.Components;
 using MetroFramework.Interfaces;
+using MetroFramework.Forms;
 
 namespace MetroFramework.Controls
 {
@@ -122,6 +123,8 @@ namespace MetroFramework.Controls
                      ControlStyles.OptimizedDoubleBuffer |
                      ControlStyles.ResizeRedraw |
                      ControlStyles.UserPaint, true);
+
+            TextAlign = ContentAlignment.BottomLeft;
         }
 
         #endregion
@@ -170,7 +173,41 @@ namespace MetroFramework.Controls
             }
 
             Size textSize = TextRenderer.MeasureText(Text, MetroFonts.Tile);
-            TextRenderer.DrawText(e.Graphics, Text, MetroFonts.Tile, new Point(0, Height-textSize.Height), foreColor);
+            var top = 0;
+            var left = 0;
+            switch(TextAlign)
+            {
+                case ContentAlignment.BottomLeft:
+                case ContentAlignment.BottomCenter:
+                case ContentAlignment.BottomRight:
+                    top = Height - textSize.Height;
+                    break;
+                case ContentAlignment.MiddleLeft:
+                case ContentAlignment.MiddleCenter:
+                case ContentAlignment.MiddleRight:
+                    top = (Height / 2) - (textSize.Height / 2);
+                    break;
+                default:
+                    break;
+            }
+
+            switch(TextAlign)
+            {
+                case ContentAlignment.BottomCenter:
+                case ContentAlignment.MiddleCenter:
+                case ContentAlignment.TopCenter:
+                    left = (Width / 2) - (textSize.Width / 2);
+                    break;
+                case ContentAlignment.BottomRight:
+                case ContentAlignment.MiddleRight:
+                case ContentAlignment.TopRight:
+                    left = Width - textSize.Width;
+                    break;
+                default:
+                    break;
+            }
+
+            TextRenderer.DrawText(e.Graphics, Text, MetroFonts.Tile, new Point(left, top), foreColor);
 
 
             if (false && isFocused)
