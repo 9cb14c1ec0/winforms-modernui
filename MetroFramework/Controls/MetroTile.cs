@@ -126,6 +126,7 @@ namespace MetroFramework.Controls
                      ControlStyles.UserPaint, true);
 
             TextAlign = ContentAlignment.BottomLeft;
+            Font = MetroFonts.Tile;
         }
 
         #endregion
@@ -241,7 +242,7 @@ namespace MetroFramework.Controls
                     break;
             }
 
-            TextRenderer.DrawText(e.Graphics, Text, MetroFonts.Tile, new Point(left, top), foreColor);
+            TextRenderer.DrawText(e.Graphics, Text, Font, new Point(left, top), foreColor);
 
 
             if (false && isFocused)
