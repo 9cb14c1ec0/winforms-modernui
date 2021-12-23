@@ -701,6 +701,9 @@ namespace MetroFramework.Drawing
                 case MetroColorStyle.Green:
                     return MetroColors.Green;
 
+                case MetroColorStyle.PaleGreen:
+                    return System.Drawing.Color.PaleGreen;
+                    
                 case MetroColorStyle.Lime:
                     return MetroColors.Lime;
 
