@@ -23,6 +23,7 @@
  */
 using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.ComponentModel;
 using System.Windows.Forms;
 
@@ -157,18 +158,51 @@ namespace MetroFramework.Controls
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             e.Graphics.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
 
-            if (!isPressed)
+            // get the parent's BackColor or Theme color
+            Color parent_color;
+            if(Theme == MetroThemeStyle.Dark)
             {
-                e.Graphics.Clear(MetroPaint.GetStyleColor(Style));
+                parent_color = Color.FromArgb(17,17,17);
             }
             else
             {
-                e.Graphics.Clear(MetroPaint.BackColor.Form(Theme));
-                
+                parent_color = Color.White;
+            }
+            
+            if (!isPressed)
+            {
+                e.Graphics.Clear(parent_color);
+                using (SolidBrush b = new SolidBrush(MetroPaint.GetStyleColor(Style)))
+                {
+                    var path = new System.Drawing.Drawing2D.GraphicsPath();
+                    path.AddArc(new Rectangle(0, 0, 12, 12),180, 90);
+                    path.AddLine(new Point(6,0), new Point(Width-6, 0));
+                    path.AddArc(new Rectangle(Width-13, 0, 12, 12), 270, 90);
+                    path.AddLine(new Point(Width-1, 6), new Point(Width-1,Height-12));
+                    path.AddArc(new Rectangle(Width-13, Height - 13, 12, 12), 0, 90);
+                    path.AddLine(new Point(Width-7,Height-1), new Point(6,Height-1));
+                    path.AddArc(new Rectangle(0, Height - 13, 12, 12), 90, 90);
+                    path.AddLine(new Point(0,Height-6), new Point(0,6));
+                    e.Graphics.FillPath(b, path);
+                    e.Graphics.DrawPath(new Pen(Color.Black), path);
+                }
+            }
+            else
+            {
+                e.Graphics.Clear(parent_color);
                 using (SolidBrush b = MetroPaint.GetStyleBrush(Style))
                 {
-                    Point[] polyPoints = new Point[] { new Point(0,0), new Point(Width-1,2),new Point(Width-1,Height-2),new Point(0,Height) };
-                    e.Graphics.FillPolygon(b, polyPoints);
+                    var path = new System.Drawing.Drawing2D.GraphicsPath();
+                    path.AddArc(new Rectangle(0, 0, 12, 12),180, 90);
+                    path.AddLine(new Point(6,0), new Point(Width-4, 2));
+                    path.AddArc(new Rectangle(Width-7, 2, 6, 6), 270, 90);
+                    path.AddLine(new Point(Width-1, 5), new Point(Width-1,Height-8));
+                    path.AddArc(new Rectangle(Width-7, Height - 8, 6, 6), 0, 90);
+                    path.AddLine(new Point(Width-4,Height-2), new Point(0,Height));
+                    path.AddArc(new Rectangle(0, Height - 12, 12, 12), 90, 90);
+                    path.AddLine(new Point(0,Height-6), new Point(0,6));
+                    e.Graphics.FillPath(b, path);
+                    e.Graphics.DrawPath(new Pen(Color.Black), path);
                 }
             }
 
