@@ -489,7 +489,7 @@ namespace MetroFramework.Drawing
                     if (theme == MetroThemeStyle.Dark)
                         return Color.FromArgb(255, 255, 255);
 
-                    return Color.FromArgb(255, 255, 255);
+                    return Color.FromArgb(17, 17, 17);
                 }
 
                 public static Color Hover(MetroThemeStyle theme)
@@ -497,7 +497,7 @@ namespace MetroFramework.Drawing
                     if (theme == MetroThemeStyle.Dark)
                         return Color.FromArgb(255, 255, 255);
 
-                    return Color.FromArgb(255, 255, 255);
+                    return Color.Gray;
                 }
 
                 public static Color Press(MetroThemeStyle theme)
