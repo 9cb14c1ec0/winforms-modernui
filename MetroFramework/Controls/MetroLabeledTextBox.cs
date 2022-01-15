@@ -150,7 +150,8 @@ namespace MetroFramework.Controls
             SetStyle(ControlStyles.DoubleBuffer, true);
             CreateBaseTextBox();
             UpdateBaseTextBox();
-            AddEventHandler();       
+            AddEventHandler();
+            this.TabStop = false;
         }
 
         #endregion
